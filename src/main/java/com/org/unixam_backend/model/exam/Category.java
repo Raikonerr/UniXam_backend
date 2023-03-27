@@ -17,15 +17,15 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long cid;
+    private long id;
 
     private  String title;
 
     private  String description;
 
-//    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private Set<Quiz> quizzes=new LinkedHashSet<>();
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Quiz> quizzes=new LinkedHashSet<>();
 
 
 

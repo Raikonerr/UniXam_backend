@@ -19,7 +19,7 @@ import java.util.HashSet;
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long qid;
+    private long id;
     private String title;
     private String description;
     private String maxMarks;
@@ -28,10 +28,10 @@ public class Quiz {
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
-//    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
-//    private Set<Question> questions = new HashSet<>();
-//    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
-//    private List<Result> results = new ArrayList<>();
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    private Set<Question> questions = new HashSet<>();
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    private List<Result> results = new ArrayList<>();
 
 
 }

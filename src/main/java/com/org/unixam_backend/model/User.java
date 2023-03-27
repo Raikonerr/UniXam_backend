@@ -18,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +33,7 @@ public class User implements UserDetails {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     @JsonIgnore
-    private Set<userRole> userRoles;
+    private Set<UserRole> userRoles;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonIgnore
@@ -66,9 +65,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
-
-
-
 
 
 }

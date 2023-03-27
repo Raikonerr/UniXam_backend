@@ -2,7 +2,7 @@ package com.org.unixam_backend.service.Implements;
 
 
 import com.org.unixam_backend.model.User;
-import com.org.unixam_backend.model.userRole;
+import com.org.unixam_backend.model.UserRole;
 import com.org.unixam_backend.repository.RoleRepository;
 import com.org.unixam_backend.repository.UserRepository;
 import com.org.unixam_backend.service.UserService;
@@ -20,13 +20,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleRepository roleRepository;
     @Override
-    public User createUser(User user, Set<userRole> userRoles) throws Exception {
+    public User createUser(User user, Set<UserRole> userRoles) throws Exception {
         User local = this.userRepository.findByUsername(user.getUsername());
 
         if (local != null){
             throw new Exception("User already present");
         }else {
-            for(userRole userR: userRoles){
+            for(UserRole userR: userRoles){
                 roleRepository.save(userR.getRole());
             }
             user.getUserRoles().addAll(userRoles);

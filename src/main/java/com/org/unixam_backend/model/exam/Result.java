@@ -9,10 +9,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long resultId;
+    private long id;
 
     private int questionAttempted;
 
