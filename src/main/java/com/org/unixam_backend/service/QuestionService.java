@@ -1,5 +1,6 @@
 package com.org.unixam_backend.service;
 
+import com.org.unixam_backend.model.QuestionDto;
 import com.org.unixam_backend.model.exam.Question;
 import com.org.unixam_backend.model.exam.Quiz;
 

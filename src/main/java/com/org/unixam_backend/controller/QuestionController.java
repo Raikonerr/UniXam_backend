@@ -1,10 +1,12 @@
 package com.org.unixam_backend.controller;
 
+import com.org.unixam_backend.model.QuestionDto;
 import com.org.unixam_backend.model.exam.Question;
 import com.org.unixam_backend.model.exam.Quiz;
 import com.org.unixam_backend.service.QuestionService;
 import com.org.unixam_backend.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/question")
+@RequestMapping(value = "/question" , produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin("*")
 public class QuestionController {
     @Autowired
@@ -25,7 +27,7 @@ public class QuestionController {
 
     @PostMapping("/")
     public ResponseEntity<?> addQuestion(@RequestBody Question question) {
-        System.out.println(question);
+        System.out.println("question : " + question);
         return ResponseEntity.ok(this.questionService.addQuestion(question));
     }
 
@@ -73,3 +75,4 @@ public class QuestionController {
 
 
 }
+

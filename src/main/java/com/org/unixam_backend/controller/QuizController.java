@@ -55,5 +55,19 @@ public class QuizController {
         return this.quizService.getQuizzesOfCategory(cat);
     }
 
+    @GetMapping("/active")
+    public List<Quiz> getActiveQuizzes()
+    {
+        return this.quizService.getActiveQuizzes();
+    }
+
+    @GetMapping("/category/active/{id}")
+    public List<Quiz> getActiveQuizzesOfCategory(@PathVariable("id") Long id)
+    {
+        Category cat=new Category();
+        cat.setId(id);
+        return this.quizService.getActiveQuizzesOfCategory(cat);
+    }
+
 
 }

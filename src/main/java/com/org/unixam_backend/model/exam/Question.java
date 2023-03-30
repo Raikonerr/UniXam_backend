@@ -1,13 +1,12 @@
 package com.org.unixam_backend.model.exam;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -19,6 +18,7 @@ public class Question {
 
     private String content;
 
+    @Nullable
     private String image;
 
     private String option1;

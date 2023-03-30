@@ -1,5 +1,6 @@
 package com.org.unixam_backend.model.exam;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Quiz {
     private Category category;
 
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Question> questions = new HashSet<>();
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
     private List<Result> results = new ArrayList<>();

@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface QuizRepository extends JpaRepository<Quiz,Long> {
     public List<Quiz> findByCategory(Category cat);
+
+    List<Quiz> findByActive(boolean b);
+
+    List<Quiz> findByCategoryAndActive(Category cat, boolean b);
 }
