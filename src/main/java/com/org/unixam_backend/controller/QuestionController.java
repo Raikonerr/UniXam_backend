@@ -1,7 +1,8 @@
 package com.org.unixam_backend.controller;
 
-import com.org.unixam_backend.model.QuestionDto;
+
 import com.org.unixam_backend.model.exam.Question;
+import com.org.unixam_backend.model.exam.QuestionResponse;
 import com.org.unixam_backend.model.exam.Quiz;
 import com.org.unixam_backend.service.QuestionService;
 import com.org.unixam_backend.service.QuizService;
@@ -67,6 +68,11 @@ public class QuestionController {
     public ResponseEntity<?> deleteQuestion(@PathVariable("id") Long id) {
         this.questionService.deleteQuestion(id);
         return ResponseEntity.ok("Question Deleted");
+    }
+
+    @PostMapping("/eval-quiz")
+    public ResponseEntity<?> evalQuiz(@RequestBody List<QuestionResponse> questionResponses) {
+        return ResponseEntity.ok(this.questionService.evalQuiz(questionResponses));
     }
 
 
